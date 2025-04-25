@@ -1,6 +1,6 @@
 using Microsoft.Playwright.NUnit;
 
-namespace AutomationExerciseTests.Tests
+namespace AutomationExerciseTests.UiTests
 {
     public class TestBase : PageTest
     {

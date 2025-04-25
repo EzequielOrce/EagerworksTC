@@ -1,7 +1,7 @@
 using AutomationExerciseTests.Pages;
 using NUnit.Framework;
 
-namespace AutomationExerciseTests.Tests
+namespace AutomationExerciseTests.UiTests
 {
     public class LoginTests : TestBase
     {
@@ -16,7 +16,8 @@ namespace AutomationExerciseTests.Tests
             await home.GoToLoginPageAsync();
             await login.LoginAsync(email, "123456");
 
-            Assert.That(await login.IsLoginSuccessfulAsync(), Is.True, "El login no fue exitoso.");
+            Assert.That(await login.IsLoginSuccessfulAsync(), Is.True, "login error.");
+
             File.Delete("temp_email.txt");
         }
     }

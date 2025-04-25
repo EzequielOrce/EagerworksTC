@@ -1,7 +1,7 @@
 using AutomationExerciseTests.Pages;
 using NUnit.Framework;
 
-namespace AutomationExerciseTests.Tests
+namespace AutomationExerciseTests.UiTests
 {
     public class SignupTests : TestBase
     {
@@ -19,7 +19,7 @@ namespace AutomationExerciseTests.Tests
 
             await File.WriteAllTextAsync("temp_email.txt", email);
 
-            Assert.That(await signup.IsAccountCreatedAsync(), Is.True, "La cuenta no fue creada correctamente.");
+            Assert.That(await signup.IsAccountCreatedAsync(), Is.True, "account not created.");
         }
     }
 }
