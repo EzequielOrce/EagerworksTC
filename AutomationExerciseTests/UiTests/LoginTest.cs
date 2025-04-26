@@ -5,7 +5,8 @@ namespace AutomationExerciseTests.UiTests
 {
     public class LoginTests : TestBase
     {
-        [Test]
+        [Test,Order(2)]
+        [Category("UI")]
         public async Task Login_WithValidCredentials_ShouldSucceed()
         {
             var home = new HomePage(Page);
@@ -18,7 +19,6 @@ namespace AutomationExerciseTests.UiTests
 
             Assert.That(await login.IsLoginSuccessfulAsync(), Is.True, "login error.");
 
-            File.Delete("temp_email.txt");
         }
     }
 }

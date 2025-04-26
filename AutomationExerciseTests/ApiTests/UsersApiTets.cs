@@ -8,7 +8,6 @@ namespace AutomationExerciseTests.Tests.ApiTests
     public class UsersApiTests
     {
         private HttpClient _client;
-
         [SetUp]
         public void Setup()
         {
@@ -17,7 +16,6 @@ namespace AutomationExerciseTests.Tests.ApiTests
                 BaseAddress = new Uri("https://reqres.in")
             };
         }
-
         [TearDown]
         public void Teardown()
         {
@@ -25,6 +23,8 @@ namespace AutomationExerciseTests.Tests.ApiTests
         }
 
         [Test]
+        [Category("API")]
+
         public async Task GetUsers_ShouldReturnListOfUsers()
         {
             var stopwatch = Stopwatch.StartNew();
@@ -46,6 +46,8 @@ namespace AutomationExerciseTests.Tests.ApiTests
             Assert.That(json["data"].HasValues, Is.True, "data property is empty");
         }   
         [Test]
+        [Category("API")]
+
         public async Task GetSingleUser_ShouldReturnUserDatax()
         {
          var stopwatch = Stopwatch.StartNew();
@@ -70,8 +72,6 @@ namespace AutomationExerciseTests.Tests.ApiTests
             Assert.That(user["first_name"]?.ToString(), Is.Not.Null, "name is empty");
             Assert.That(user["avatar"]?.ToString(), Does.Contain("https://"), "avatar url is not valid");
         }
-
     }
 }
-
        

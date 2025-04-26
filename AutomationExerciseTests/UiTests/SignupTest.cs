@@ -5,7 +5,8 @@ namespace AutomationExerciseTests.UiTests
 {
     public class SignupTests : TestBase
     {
-        [Test]
+        [Test,Order(1)]
+        [Category("UI")]
         public async Task Signup_WithValidData_ShouldCreateAccount()
         {
             var home = new HomePage(Page);
