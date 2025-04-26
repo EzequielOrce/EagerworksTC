@@ -28,7 +28,11 @@ namespace AutomationExerciseTests.Tests.ApiTests
         public async Task GetUsers_ShouldReturnListOfUsers()
         {
             var stopwatch = Stopwatch.StartNew();
-            var response = await _client.GetAsync("/api/users?page=2");
+            var request = new HttpRequestMessage(HttpMethod.Get, "/api/users?page=2");
+            request.Headers.Add("x-api-key", "reqres-free-v1");
+
+           var response = await _client.SendAsync(request);
+
             stopwatch.Stop();
 
             // Response time
@@ -51,7 +55,12 @@ namespace AutomationExerciseTests.Tests.ApiTests
         public async Task GetSingleUser_ShouldReturnUserDatax()
         {
          var stopwatch = Stopwatch.StartNew();
-            var response = await _client.GetAsync("/api/users/2");
+         
+            var request = new HttpRequestMessage(HttpMethod.Get, "/api/users/2");
+            request.Headers.Add("x-api-key", "reqres-free-v1");
+
+            var response = await _client.SendAsync(request);
+            
             stopwatch.Stop();
 
             // Response time
